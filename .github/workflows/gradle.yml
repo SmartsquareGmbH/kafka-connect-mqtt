@@ -25,7 +25,7 @@ jobs:
     - name: Jar with Gradle
       run: ./gradlew clean jar
     - name: Publish to GitHub Packages
-      run: gradle publish
+      run: ./gradlew publish
       env:
         USERNAME: ${{ github.actor }}
         PASSWORD: ${{ secrets.GITHUB_TOKEN }}
