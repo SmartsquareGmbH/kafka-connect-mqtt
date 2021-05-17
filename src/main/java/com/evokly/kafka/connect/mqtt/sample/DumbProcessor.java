@@ -31,6 +31,14 @@ public class DumbProcessor implements MqttMessageProcessor {
     @Override
     public SourceRecord[] getRecords(String kafkaTopic) {
         String actualTopic = mTopic.replace("/", "_");
+        if (log.isTraceEnabled()) {
+            try {
+                log.trace("Processed message {} / {}", mTopic, new String(mMessage.getPayload()));
+            } catch (Exception ex) {
+                //The new String() _might_ fail if message payloads were not actually text.
+                // Ignore those errors since they're only related to trace logging anyway.
+            }
+        }
         return new SourceRecord[]{new SourceRecord(null, null, actualTopic, null,
                 Schema.STRING_SCHEMA, mTopic,
                 Schema.STRING_SCHEMA, new String(mMessage.getPayload(), StandardCharsets.UTF_8))};
