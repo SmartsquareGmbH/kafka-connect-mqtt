@@ -179,7 +179,7 @@ public class MqttSourceTask extends SourceTask implements MqttCallback {
 			}
 		}
 
-		if (mConfig.getBoolean(MqttSourceConstant.MQTT_CLEAN_SESSION)) {
+		if (mConfig.getBoolean(MqttSourceConstant.MQTT_CLEAN_SESSION) != null) {
 			connectOptions.setCleanSession(mConfig.getBoolean(MqttSourceConstant.MQTT_CLEAN_SESSION));
 		}
 		connectOptions.setConnectionTimeout(mConfig.getInt(MqttSourceConstant.MQTT_CONNECTION_TIMEOUT));
