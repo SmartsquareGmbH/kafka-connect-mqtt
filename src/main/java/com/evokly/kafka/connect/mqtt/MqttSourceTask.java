@@ -193,6 +193,8 @@ public class MqttSourceTask extends SourceTask implements MqttCallback {
 		if (mConfig.getString(MqttSourceConstant.MQTT_PASSWORD) != null) {
 			connectOptions.setPassword(mConfig.getString(MqttSourceConstant.MQTT_PASSWORD).toCharArray());
 		}
+
+		log.info("ConnectOptions: {}", connectOptions);
 		return connectOptions;
 	}
 
