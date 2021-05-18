@@ -1,3 +1,6 @@
+name: Publish release
+
+
 on:
   release:
     types: [published]
