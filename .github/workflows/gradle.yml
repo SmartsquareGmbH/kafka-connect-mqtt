@@ -24,8 +24,3 @@ jobs:
       run: chmod +x gradlew
     - name: Jar with Gradle
       run: ./gradlew clean jar
-    - name: Publish to GitHub Packages
-      run: gradle publish
-      env:
-        USERNAME: ${{ github.actor }}
-        PASSWORD: ${{ secrets.GITHUB_TOKEN }}

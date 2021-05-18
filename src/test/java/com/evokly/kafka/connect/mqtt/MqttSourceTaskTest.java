@@ -48,7 +48,7 @@ public class MqttSourceTaskTest {
 
         assertEquals(sourceRecords.size(), 1);
         assertEquals(sourceRecords.get(0).key(), "test_topic");
-        assertEquals(new String((byte[]) sourceRecords.get(0).value(), "UTF-8"), "test_message");
+        assertEquals(sourceRecords.get(0).value(), "test_message");
 
         // empty queue
         assertEquals(mTask.mQueue.size(), 0);
